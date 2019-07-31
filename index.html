@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+        </title>
+        <body>
+            <script>
+                function computerPlay(choice){
+                    let min = 1;
+                    let max = 4;
+                    let random = Math.floor(Math.random() * (+max - +min)) + +min;
+                    if (random == 1){
+                        return "Rock";
+                    }else if (random == 2){
+                        return "Paper";
+                    }else{
+                        return "Scissors";
+                    }
+                }
+                function playRound(playerSelection, computerSelection){
+
+                    let lowerPlayerSelection = playerSelection.toLowerCase();
+                    let lowerComputerSelection = computerSelection.toLowerCase();
+
+                    if (lowerPlayerSelection == lowerComputerSelection){
+                        console.log("You Tied!");
+                        return 1;
+                    }else if ((lowerPlayerSelection == 'rock' && lowerComputerSelection == 'scissors') ||
+                         (lowerPlayerSelection == 'paper' && lowerComputerSelection == 'rock') ||
+                         (lowerPlayerSelection == 'scissors' && lowerComputerSelection == 'paper')){
+                        
+                        console.log("You Win! " + playerSelection + " beats " + computerSelection + ".");
+                        return 2;
+                    }else{
+                        console.log("You Lose! " + computerSelection + " beats " + playerSelection + ".");
+                        return 3;
+                    }
+                }
+                function game(){
+                    let i = 0;
+                    let playerScore = 0;
+                    let computerScore = 0;
+                    let tied = 0;
+
+                    while (i < 5){
+                        let playerChoice = prompt("Rock, Paper, Scissors?", "Enter your choice");
+                        let winner = playRound(playerChoice, computerPlay());
+                        
+                        if (winner == 2){
+                            ++playerScore;
+                        }else if (winner == 3){
+                            ++computerScore;
+                        }else{++tied;
+                        }
+                        console.log(playerScore);
+                        console.log(computerScore);
+                        i++;
+                    }
+                    if (playerScore > computerScore){
+                        console.log("You Won!");
+                    }else if (playerScore == computerScore){
+                        console.log("You Lost!");
+                    }else{
+                        console.log("You Tied!");
+                    }
+                }
+                game();
+            </script>
+        </body>
+    </head>
+</html>
