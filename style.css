@@ -119,14 +119,14 @@ h1{
   }
 
   .playerNumber{
-    font-size: 5rem;
+    font-size: 4rem;
     font-family: 'Orbitron', sans-serif;
     padding: 1rem 1rem;
     color: red;
   }
 
   .computerNumber{
-    font-size: 5rem;
+    font-size: 4rem;
     font-family: 'Orbitron', sans-serif;
     padding: 1rem 1rem;
     color: red;
